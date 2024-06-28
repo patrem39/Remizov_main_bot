@@ -1,7 +1,7 @@
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
 
-TOKEN = '7291732021:AAEOzp02l7MlOUwBMMDXg-mOQpITYbVSxcQ'
+TOKEN = '7291732021:AAFhKuOkHHLrWp99cfRN6pnIQ4mwg22iEec'
 REVIEWS_LINK = 'https://t.me/remizov_otziv'
 
 PRODUCTS = {
