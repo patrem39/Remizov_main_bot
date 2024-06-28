@@ -1,7 +1,10 @@
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
+import os
 
 TOKEN = '7291732021:AAFhKuOkHHLrWp99cfRN6pnIQ4mwg22iEec'
+WEBHOOK_URL = 'https://telegrambot-patrem39.amvera.io'
+
 REVIEWS_LINK = 'https://t.me/remizov_otziv'
 
 PRODUCTS = {
@@ -130,7 +133,11 @@ def main() -> None:
     app.add_handler(CommandHandler('start', start))
     app.add_handler(CallbackQueryHandler(button))
 
-    app.run_polling()
+    # Устанавливаем вебхук
+    app.run_webhook(listen="0.0.0.0",
+                    port=int(os.environ.get('PORT', '8443')),
+                    url_path=TOKEN,
+                    webhook_url=f"{WEBHOOK_URL}/{TOKEN}")
 
 if __name__ == '__main__':
     main()
